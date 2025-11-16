@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechBro Shop</title>
+  <style>
+    :root{
+      --bg:#f5f6f8; --card:#fff; --accent:#0b5cff; --muted:#666;
+    }
+    *{box-sizing:border-box}
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: var(--bg); color:#111;}
+    header { background: #0b0b0b; color: #fff; padding: 22px 16px; text-align: center; }
+    header h1{margin:0;font-size:24px}
+    header p{margin:6px 0 0; opacity:0.9}
+    nav { background: #111; padding: 10px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap;}
+    nav a { color: white; text-decoration: none; font-weight:600; padding:6px 10px; border-radius:6px;}
+    .container{max-width:1100px;margin:20px auto;padding:0 16px;}
+    .section{background:var(--card); padding:22px;border-radius:10px;margin-bottom:18px;box-shadow:0 6px 18px rgba(0,0,0,0.06);}
+    .hero{display:flex; gap:18px; align-items:center; justify-content:space-between; flex-wrap:wrap;}
+    .hero-left h2{margin:0 0 8px;font-size:20px}
+    .btn{display:inline-block;padding:10px 14px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;}
+    /* Products grid */
+    .product-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:14px;}
+    .card{background:var(--card); border-radius:10px; overflow:hidden; box-shadow:0 6px 14px rgba(13,13,13,0.06); display:flex; flex-direction:column;}
+    .card img{width:100%; height:160px; object-fit:cover; display:block;}
+    .card-body{padding:12px 14px; flex:1; display:flex; flex-direction:column; justify-content:space-between;}
+    .title{font-weight:700;margin-bottom:6px}
+    .price{font-size:18px;color:var(--accent);font-weight:700}
+    .meta{color:var(--muted); font-size:13px; margin-bottom:8px}
+    .card-actions{display:flex; justify-content:space-between; align-items:center; margin-top:10px;}
+    .heart{font-size:20px; cursor:pointer; user-select:none;}
+    .heart.liked{color:#e0245e; transform:scale(1.08);}
+    .buy{background:#111; color:#fff; padding:8px 12px; border-radius:8px; text-decoration:none; font-weight:600;}
+    footer{text-align:center;padding:18px 0;color:var(--muted); font-size:14px;}
+    /* responsive tweaks */
+    @media (max-width:420px){ .card img{height:140px} header h1{font-size:20px} }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>TechBro Shop</h1>
+  <p>Your Trusted Computer & Electronics Store</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#products">Products</a>
+  <a href="#services">Services</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+
+  <section id="home" class="section hero">
+    <div class="hero-left">
+      <h2>सर्व प्रकारचे Computers, Parts & Accessories</h2>
+      <p style="margin:6px 0;color:var(--muted)">Best price, Genuine products आणि nationwide delivery</p>
+    </div>
+    <div>
+      <a class="btn" href="https://wa.me/9067325964" target="_blank">Order on WhatsApp</a>
+    </div>
+  </section>
+
+  <section id="products" class="section">
+    <h2>Popular Computers</h2>
+    <div class="product-grid">
+
+      <!-- Product 1 -->
+      <div class="card">
+        <img src="https://source.unsplash.com/featured/?laptop,workstation" alt="Laptop 1">
+        <div class="card-body">
+          <div>
+            <div class="title">Dell Inspiron 15</div>
+            <div class="meta">Intel i5 • 8GB RAM • 512GB SSD</div>
+            <div class="price">₹29,999</div>
+          </div>
+          <div class="card-actions">
+            <div class="heart" onclick="toggleHeart(this)">♡</div>
+            <a class="buy" href="https://wa.me/9067325964" target="_blank">Buy Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="card">
+        <img src="https://source.unsplash.com/featured/?gaming-laptop,computer" alt="Gaming laptop">
+        <div class="card-body">
+          <div>
+            <div class="title">Gaming Pro G7</div>
+            <div class="meta">Ryzen 7 • 16GB RAM • RTX 3050</div>
+            <div class="price">₹64,999</div>
+          </div>
+          <div class="card-actions">
+            <div class="heart" onclick="toggleHeart(this)">♡</div>
+            <a class="buy" href="https://wa.me/9067325964" target="_blank">Buy Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="card">
+        <img src="https://source.unsplash.com/featured/?desktop,pc" alt="Desktop PC">
+        <div class="card-body">
+          <div>
+            <div class="title">Office Desktop Set</div>
+            <div class="meta">i3 • 8GB RAM • 256GB SSD • Monitor Included</div>
+            <div class="price">₹24,499</div>
+          </div>
+          <div class="card-actions">
+            <div class="heart" onclick="toggleHeart(this)">♡</div>
+            <a class="buy" href="https://wa.me/9067325964" target="_blank">Buy Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="card">
+        <img src="https://source.unsplash.com/featured/?laptop,gaming" alt="Refurbished laptop">
+        <div class="card-body">
+          <div>
+            <div class="title">Refurbished ThinkPad</div>
+            <div class="meta">i5 • 8GB RAM • 256GB SSD • Refurbished</div>
+            <div class="price">₹18,999</div>
+          </div>
+          <div class="card-actions">
+            <div class="heart" onclick="toggleHeart(this)">♡</div>
+            <a class="buy" href="https://wa.me/9067325964" target="_blank">Buy Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="services" class="section">
+    <h2>Services</h2>
+    <ul>
+      <li>Computer Repair</li>
+      <li>Software Installation</li>
+      <li>Windows Installation</li>
+      <li>Performance Upgrade</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p><strong>Owner:</strong> Harshal Maruti Mane</p>
+    <p><strong>Phone:</strong> 9067325964</p>
+    <p><strong>WhatsApp:</strong> <a href="https://wa.me/9067325964" target="_blank">Message on WhatsApp</a></p>
+  </section>
+
+</div>
+
+<footer>
+  <p>&copy; TechBro Shop • Designed by Harshal</p>
+</footer>
+
+<script>
+  function toggleHeart(el){
+    if(el.classList.contains('liked')){
+      el.classList.remove('liked');
+      el.textContent = '♡';
+    } else {
+      el.classList.add('liked');
+      el.textContent = '♥';
+    }
+  }
+</script>
+
+</body>
+</html>
